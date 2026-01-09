@@ -1,6 +1,12 @@
-# Dockerfile-server-base
-# 基础镜像，包含系统依赖和Python包
 FROM python:3.10-slim
+
+WORKDIR /usr/src/app/
+
+ADD requirements.txt .
+
+ADD models /usr/local/bin/models
+
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # 安装系统依赖
 RUN apt-get update && \
