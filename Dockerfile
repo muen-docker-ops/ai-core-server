@@ -6,13 +6,12 @@ ADD requirements.txt .
 
 ADD models /usr/local/bin/models
 
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
-
 # 安装系统依赖
 RUN apt-get update && \
     apt-get install -y --no-install-recommends libopus0 ffmpeg locales && \
     sed -i '/zh_CN.UTF-8/s/^# //g' /etc/locale.gen && \
     locale-gen && \
+    pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt && \
     apt-get clean && \
     rm -rf \
         /tmp/* \
