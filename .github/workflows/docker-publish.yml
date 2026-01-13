@@ -14,7 +14,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: "muen/pytnon"
+  IMAGE_NAME: "muen/python"
   IMAGE_TAG: "3.10-ai-core-server"
 
 jobs:
